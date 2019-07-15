@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Barberia</string>
+    <string name="title_activity_list_citas">ListCitasActivity</string>
+
+    <string-array name="tipo_corte">
+        <item>Cabello</item>
+        <item>Barba</item>
+        <item>Combo</item>
+    </string-array>
+</resources>
