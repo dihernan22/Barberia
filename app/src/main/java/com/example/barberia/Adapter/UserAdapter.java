@@ -35,8 +35,8 @@ public class UserAdapter extends ArrayAdapter {
         TextView tvNombre = v.findViewById(R.id.etNombreU);
         TextView tvTelefono = v.findViewById(R.id.etTelefonoU);
 
-        tvNombre.setText(userList.get(position).getNombre() + " " + userList.get(position).getApellido());
-        tvTelefono.setText(String.valueOf(userList.get(position).getTelefono()));
+        tvNombre.setText(userList.get(position).getNombre_u() + " " + userList.get(position).getApellido_u());
+        tvTelefono.setText(String.valueOf(userList.get(position).getTelefono_u()));
 
         return v;
     }

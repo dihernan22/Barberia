@@ -8,14 +8,13 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.example.barberia.Clases.Cita;
 import com.example.barberia.R;
-import com.example.barberia.pojo.ClienteConCita;
+import com.example.barberia.pojo.CitaConCliente;
 
 import java.util.List;
 
 public class RvAdapter extends RecyclerView.Adapter<RvAdapter.CitaHolder> {
-    List<ClienteConCita> citaList;
+    List<CitaConCliente> citaList;
 
     private final OnItemClickListener onItemClickListener;
 
@@ -23,7 +22,7 @@ public class RvAdapter extends RecyclerView.Adapter<RvAdapter.CitaHolder> {
         void OnItemClick(int posicion, long id);
     }
 
-    public RvAdapter(List<ClienteConCita> citaList, OnItemClickListener onItemClickListener){
+    public RvAdapter(List<CitaConCliente> citaList, OnItemClickListener onItemClickListener){
         this.citaList = citaList;
         this.onItemClickListener=onItemClickListener;
     }
@@ -39,8 +38,10 @@ public class RvAdapter extends RecyclerView.Adapter<RvAdapter.CitaHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull CitaHolder citaholder, int position) {
-        citaholder.tvNombre.setText(citaList.get(position).getCliente().getNombre());
-        citaholder.tvApellido.setText(citaList.get(position).getCliente().getApellido());
+        citaholder.etNombreCliente.setText(citaList.get(position).getCliente().getNombre_c() + " " + citaList.get(position).getCliente().getApellido_c());
+        citaholder.etNombreBarbero.setText(citaList.get(position).getUsuario().getNombre_u() + " " + citaList.get(position).getUsuario().getApellido_u());
+        citaholder.etNombreCorte.setText(citaList.get(position).getCorte().getNombre_cr());
+        citaholder.etFecha.setText(citaList.get(position).getCita().getDia());
     }
 
     @Override
@@ -50,16 +51,18 @@ public class RvAdapter extends RecyclerView.Adapter<RvAdapter.CitaHolder> {
 
 
     public class CitaHolder extends RecyclerView.ViewHolder implements  View.OnClickListener{
-        private TextView tvNombre;
-        private TextView tvApellido;
+        private TextView etNombreCliente, etNombreBarbero;
+        private TextView etFecha, etNombreCorte;
         private ImageButton ibEditar;
         private ImageButton ibEliminar;
 
         public CitaHolder(@NonNull View itemView){
             super(itemView);
 
-            tvNombre=itemView.findViewById(R.id.tvNombre);
-            tvApellido=itemView.findViewById(R.id.tvApellido);
+            etNombreCliente=itemView.findViewById(R.id.etNombreCliente);
+            etNombreBarbero=itemView.findViewById(R.id.etNombreBarbero);
+            etFecha=itemView.findViewById(R.id.etFecha);
+            etNombreCorte=itemView.findViewById(R.id.etCorte);
             ibEditar=itemView.findViewById(R.id.ibEditar);
             ibEliminar=itemView.findViewById(R.id.ibEliminar);
 

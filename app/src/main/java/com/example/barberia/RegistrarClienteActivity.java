@@ -54,11 +54,11 @@ public class RegistrarClienteActivity extends AppCompatActivity {
                         etContra.setError("Campo Obligatorio");
                 }else{
                     Cliente nuevo = new Cliente();
-                    nuevo.setNombre(etNombre.getText().toString());
-                    nuevo.setApellido(etApellido.getText().toString());
-                    nuevo.setTelefono(etTelefono.getText().toString());
-                    nuevo.setUser(etUsuario.getText().toString());
-                    nuevo.setContrasenia(etContra.getText().toString());
+                    nuevo.setNombre_c(etNombre.getText().toString());
+                    nuevo.setApellido_c(etApellido.getText().toString());
+                    nuevo.setTelefono_c(etTelefono.getText().toString());
+                    nuevo.setUser_c(etUsuario.getText().toString());
+                    nuevo.setContrasenia_c(etContra.getText().toString());
 
                     try{
                         DbBarberia.getAppDatabase(this).clienteDao().Insertar(nuevo);

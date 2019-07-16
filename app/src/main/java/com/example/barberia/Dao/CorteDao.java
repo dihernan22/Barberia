@@ -21,4 +21,7 @@ public interface CorteDao {
 
     @Query("SELECT * FROM corte WHERE tipo='Combo'")
     List<Corte> ObtenerCombo();
+
+    @Query("SELECT * FROM corte WHERE id_cr=:id")
+    Corte ObtenerCorte(int id);
 }

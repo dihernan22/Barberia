@@ -14,21 +14,21 @@ public class Cita {
     private String dia;
     private String hora;
     @ForeignKey(entity = Cliente.class,
-                parentColumns = "id",
+                parentColumns = "id_c",
                 childColumns = "id_cliente",
                 onDelete = CASCADE,
                 onUpdate = RESTRICT)
     private int id_cliente;
 
     @ForeignKey(entity = Usuario.class,
-                parentColumns = "id",
+                parentColumns = "id_u",
                 childColumns = "id_user",
                 onDelete = CASCADE,
                 onUpdate = RESTRICT)
     private int id_user;
 
     @ForeignKey(entity = Corte.class,
-            parentColumns = "id",
+            parentColumns = "id_cr",
             childColumns = "id_corte",
             onDelete = CASCADE,
             onUpdate = RESTRICT)

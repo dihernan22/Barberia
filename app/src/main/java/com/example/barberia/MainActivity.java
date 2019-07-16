@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
                             }
                             else
                             {
-                                Preferences.GuardarEstado(MainActivity.this, true, cliente.getUser(), cliente.getId());
+                                Preferences.GuardarEstado(MainActivity.this, true, cliente.getUser_c(), cliente.getId_c());
                                 Intent intent = new Intent(MainActivity.this, PrincipalActivity.class);
                                 startActivity(intent);
                                 Toast.makeText(MainActivity.this, "Usuario logueado correctamente", Toast.LENGTH_SHORT).show();

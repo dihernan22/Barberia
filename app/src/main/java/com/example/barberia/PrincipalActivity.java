@@ -35,6 +35,8 @@ public class PrincipalActivity extends AppCompatActivity {
                 startActivity(intent1);
                 break;
             case R.id.mnCitas:
+                Intent intent2 = new Intent(PrincipalActivity.this, ListCitasActivity.class);
+                startActivity(intent2);
                 break;
             case R.id.mnSalir:
                 Preferences.GuardarEstado(this, false, "", 0);

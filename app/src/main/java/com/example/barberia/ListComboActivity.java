@@ -38,8 +38,8 @@ public class ListComboActivity extends AppCompatActivity {
                 if (Preferences.ObtenerEstado(ListComboActivity.this) == true)
                 {
                     Intent intent = new Intent();
-                    intent.putExtra("id", corteList.get(position).getId());
-                    intent.putExtra("nombre", corteList.get(position).getNombre());
+                    intent.putExtra("id", corteList.get(position).getId_cr());
+                    intent.putExtra("nombre", corteList.get(position).getNombre_cr());
                     //Toast.makeText(ListBarbaActivity.this, corteList.get(position).getNombre(), Toast.LENGTH_SHORT).show();
                     setResult(RESULT_OK, intent);
                     finish();

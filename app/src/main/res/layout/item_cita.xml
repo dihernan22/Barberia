@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="120dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <android.support.v7.widget.CardView
@@ -18,58 +19,110 @@
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="120dp">
 
             <TextView
-                android:id="@+id/tvNombre"
+                android:id="@+id/tvNombreCliente"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
-                android:text="Nombre"
+                android:text="Cliente:"
                 app:layout_constraintBottom_toBottomOf="@+id/ibEditar"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tvApellido"
+                android:id="@+id/tvNombreBarbero"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:text="Apellido"
-                app:layout_constraintBottom_toBottomOf="@+id/tvNombre"
-                app:layout_constraintEnd_toStartOf="@+id/ibEditar"
-                app:layout_constraintHorizontal_bias="0.58"
-                app:layout_constraintStart_toEndOf="@+id/tvNombre"
-                app:layout_constraintTop_toTopOf="@+id/tvNombre" />
+                android:layout_marginTop="16dp"
+                android:text="Barbero:"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etNombreCliente" />
 
             <ImageButton
                 android:id="@+id/ibEditar"
+                style="@style/Widget.AppCompat.ImageButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_action_edit_"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/ibEliminar"
-                app:layout_constraintTop_toTopOf="parent"
-                style="@style/Widget.AppCompat.ImageButton"
-                android:background="@android:color/transparent"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageButton
                 android:id="@+id/ibEliminar"
+                style="@style/Widget.AppCompat.ImageButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="7dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_action_delete"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                style="@style/Widget.AppCompat.ImageButton"
-                android:background="@android:color/transparent"/>
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/etNombreCliente"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="TextView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvNombreCliente" />
+
+            <TextView
+                android:id="@+id/etNombreBarbero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="TextView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvNombreBarbero" />
+
+            <TextView
+                android:id="@+id/etCorte"
+                android:layout_width="wrap_content"
+                android:layout_height="19dp"
+                android:text="TextView"
+                app:layout_constraintStart_toStartOf="@+id/textView7"
+                app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="136dp"
+                android:layout_marginTop="20dp"
+                android:text="Corte:"
+                app:layout_constraintStart_toEndOf="@+id/tvNombreCliente"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvFecha"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginStart="128dp"
+                android:layout_marginTop="36dp"
+                android:text="Fecha:"
+                app:layout_constraintStart_toEndOf="@+id/tvNombreBarbero"
+                app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+            <TextView
+                android:id="@+id/etFecha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                app:layout_constraintEnd_toEndOf="@+id/etCorte"
+                app:layout_constraintTop_toBottomOf="@+id/tvFecha" />
 
         </android.support.constraint.ConstraintLayout>
     </android.support.v7.widget.CardView>

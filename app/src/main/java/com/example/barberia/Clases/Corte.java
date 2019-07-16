@@ -6,8 +6,8 @@ import android.arch.persistence.room.PrimaryKey;
 @Entity
 public class Corte {
     @PrimaryKey(autoGenerate = true)
-    private int id;
-    private String nombre;
+    private int id_cr;
+    private String nombre_cr;
     private Double precio;
     private String tipo;
     private String imagen;
@@ -15,27 +15,27 @@ public class Corte {
     public Corte(){}
 
     public Corte(int id, String nombre, Double precio, String tipo, String imagen) {
-        this.id = id;
-        this.nombre = nombre;
+        this.id_cr = id;
+        this.nombre_cr = nombre;
         this.precio = precio;
         this.tipo = tipo;
         this.imagen = imagen;
     }
 
-    public int getId() {
-        return id;
+    public int getId_cr() {
+        return id_cr;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId_cr(int id_cr) {
+        this.id_cr = id_cr;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNombre_cr() {
+        return nombre_cr;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombre_cr(String nombre_cr) {
+        this.nombre_cr = nombre_cr;
     }
 
     public Double getPrecio() {

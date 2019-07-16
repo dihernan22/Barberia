@@ -17,6 +17,6 @@ public interface ClienteDao {
     @Update
     void Actualizar(Cliente cliente);
 
-    @Query("SELECT * FROM cliente WHERE user=:username AND contrasenia=:contra")
+    @Query("SELECT * FROM cliente WHERE user_c=:username AND contrasenia_c=:contra")
     Cliente ObtenerCliente(String username, String contra);
 }

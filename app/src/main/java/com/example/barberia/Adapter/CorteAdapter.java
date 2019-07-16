@@ -34,7 +34,7 @@ public class CorteAdapter extends ArrayAdapter {
         TextView tvNombre = v.findViewById(R.id.etNombreC);
         TextView tvPrecio = v.findViewById(R.id.etPrecioC);
 
-        tvNombre.setText(corteList.get(position).getNombre());
+        tvNombre.setText(corteList.get(position).getNombre_cr());
         tvPrecio.setText(String.valueOf(corteList.get(position).getPrecio()));
 
         return v;

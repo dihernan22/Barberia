@@ -40,8 +40,8 @@ public class ListUserActivity extends AppCompatActivity {
                 if (Preferences.ObtenerEstado(ListUserActivity.this) == true)
                 {
                     Intent intent = new Intent();
-                    intent.putExtra("id", userList.get(position).getId());
-                    intent.putExtra("nombre", userList.get(position).getNombre() + " " + userList.get(position).getApellido());
+                    intent.putExtra("id", userList.get(position).getId_u());
+                    intent.putExtra("nombre", userList.get(position).getNombre_u() + " " + userList.get(position).getApellido_u());
                     //Toast.makeText(ListBarbaActivity.this, corteList.get(position).getNombre(), Toast.LENGTH_SHORT).show();
                     setResult(RESULT_OK, intent);
                     finish();

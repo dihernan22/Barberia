@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ListUserActivity"></activity>
+        <activity android:name=".EditarCitaActivity"></activity>
+        <activity android:name=".ListUserActivity" />
         <activity android:name=".ListCitasActivity" />
         <activity android:name=".RegistrarCitaActivity" />
         <activity android:name=".PrincipalActivity" />

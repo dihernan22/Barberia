@@ -2,43 +2,33 @@ package com.example.barberia;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteConstraintException;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import com.example.barberia.Adapter.CorteAdapter;
 import com.example.barberia.Clases.Cita;
-import com.example.barberia.Clases.Cliente;
 import com.example.barberia.Clases.Corte;
 import com.example.barberia.Clases.Preferences;
 import com.example.barberia.Clases.Usuario;
 import com.example.barberia.DB.DbBarberia;
 
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 
-public class RegistrarCitaActivity extends AppCompatActivity implements View.OnClickListener {
+public class EditarCitaActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private int id_corte, id_user;
+    private int id_corte, id_user, pos, id;
 
     private static final String CERO = "0";
 
@@ -68,20 +58,22 @@ public class RegistrarCitaActivity extends AppCompatActivity implements View.OnC
     Spinner spTipo;
     EditText etBarbero, etCorte;
 
+    private Cita update;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registrar_cita);
+        setContentView(R.layout.activity_editar_cita);
 
         //Widget EditText donde se mostrara la hora obtenida
-        etHora = findViewById(R.id.etHora);
+        etHora = findViewById(R.id.etHoraE);
         //Widget ImageButton del cual usaremos el evento clic para obtener la hora
         ibObtenerHora = findViewById(R.id.ibHora);
         //Evento setOnClickListener - clic
         ibObtenerHora.setOnClickListener(this);
 
         //Widget EditText donde se mostrara la fecha obtenida
-        etFecha = findViewById(R.id.etFecha);
+        etFecha = findViewById(R.id.etFechaE);
         //Widget ImageButton del cual usaremos el evento clic para obtener la fecha
         ibObtenerFecha = findViewById(R.id.ibFecha);
         //Evento setOnClickListener - clic
@@ -94,9 +86,20 @@ public class RegistrarCitaActivity extends AppCompatActivity implements View.OnC
         ibObtenerBarbero.setOnClickListener(this);
 
         tvCorte = findViewById(R.id.tvCorte);
-        spTipo = findViewById(R.id.spTipo);
-        etCorte = findViewById(R.id.etCorte);
-        etBarbero = findViewById(R.id.etBarbero);
+        spTipo = findViewById(R.id.spTipoE);
+        etCorte = findViewById(R.id.etCorteE);
+        etBarbero = findViewById(R.id.etBarberoE);
+
+        Bundle extras =getIntent().getExtras();
+
+        if(extras!=null){
+            pos=extras.getInt("pos");
+            id=extras.getInt("id");
+            id_user=extras.getInt("id_user");
+            id_corte=extras.getInt("id_corte");
+            CargarDatos();
+            //Toast.makeText(this, pos + " " + id + " " + id_userExtras + " " + id_corteExtras, Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
@@ -122,19 +125,22 @@ public class RegistrarCitaActivity extends AppCompatActivity implements View.OnC
                 }
                 else
                 {
-                    Cita c = new Cita();
-                    c.setDia(etFecha.getText().toString());
-                    c.setHora(etHora.getText().toString());
-                    c.setId_cliente(Preferences.ObtenerId(this));
-                    c.setId_user(id_user);
-                    c.setId_corte(id_corte);
+                    Intent intent = new Intent();
+                    update.setDia(etFecha.getText().toString());
+                    update.setHora(etHora.getText().toString());
+                    update.setId_cliente(Preferences.ObtenerId(this));
+                    update.setId_user(id_user);
+                    update.setId_corte(id_corte);
 
                     try{
-                        DbBarberia.getAppDatabase(this).citaDao().Insertar(c);
+                        DbBarberia.getAppDatabase(this).citaDao().Actualizar(update);
+                        intent.putExtra("id", id);
+                        intent.putExtra("pos", pos);
                     }
                     catch (SQLiteConstraintException e){
-                        Toast.makeText(this, "NO se puedo ingresar", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "NO se puedo actualizar la cita", Toast.LENGTH_SHORT).show();
                     }
+                    setResult(RESULT_OK, intent);
                 }
                 finish();
                 break;
@@ -157,22 +163,22 @@ public class RegistrarCitaActivity extends AppCompatActivity implements View.OnC
             case R.id.ibCorte:
                 if (spTipo.getSelectedItem().toString().equals("Cabello"))
                 {
-                    Intent intent = new Intent(RegistrarCitaActivity.this,ListCabelloActivity.class);
+                    Intent intent = new Intent(EditarCitaActivity.this,ListCabelloActivity.class);
                     startActivityForResult(intent, 4444);
                 }
                 if (spTipo.getSelectedItem().toString().equals("Barba"))
                 {
-                    Intent intent = new Intent(RegistrarCitaActivity.this,ListBarbaActivity.class);
+                    Intent intent = new Intent(EditarCitaActivity.this,ListBarbaActivity.class);
                     startActivityForResult(intent, 4445);
                 }
                 if (spTipo.getSelectedItem().toString().equals("Combo"))
                 {
-                    Intent intent = new Intent(RegistrarCitaActivity.this,ListComboActivity.class);
+                    Intent intent = new Intent(EditarCitaActivity.this,ListComboActivity.class);
                     startActivityForResult(intent, 4446);
                 }
                 break;
             case R.id.ibBarbero:
-                Intent intent = new Intent(RegistrarCitaActivity.this,ListUserActivity.class);
+                Intent intent = new Intent(EditarCitaActivity.this,ListUserActivity.class);
                 startActivityForResult(intent, 4447);
                 break;
         }
@@ -208,6 +214,31 @@ public class RegistrarCitaActivity extends AppCompatActivity implements View.OnC
 
             }
         }
+    }
+
+    public void CargarDatos(){
+        Spinner spTipo = findViewById(R.id.spTipoE);
+        EditText etBarbero = findViewById(R.id.etBarberoE);
+        EditText etCorte = findViewById(R.id.etCorteE);
+        EditText etHora = findViewById(R.id.etHoraE);
+        EditText etFecha = findViewById(R.id.etFechaE);
+        update = new Cita();
+        update=DbBarberia.getAppDatabase(this).citaDao().ObtenerCita(id);
+        etFecha.setText(update.getDia());
+        etHora.setText(update.getHora());
+
+        Corte cr = DbBarberia.getAppDatabase(this).corteDao().ObtenerCorte(id_corte);
+        if(cr.getTipo().equals("Cabello"))
+            spTipo.setSelection(0);
+        else if (cr.getTipo().equals("Barba"))
+            spTipo.setSelection(1);
+        else
+            spTipo.setSelection(2);
+
+        etCorte.setText(cr.getNombre_cr());
+
+        Usuario us = DbBarberia.getAppDatabase(this).usuarioDao().ObtenerBarbero(id_user);
+        etBarbero.setText(us.getNombre_u() + " " + us.getApellido_u());
     }
 
     private void obtenerHora(){

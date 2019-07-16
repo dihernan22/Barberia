@@ -20,4 +20,7 @@ public interface UsuarioDao {
 
     @Query("SELECT * FROM usuario")
     List<Usuario> ObtenerBarberos();
+
+    @Query("SELECT * FROM usuario WHERE id_u=:id")
+    Usuario ObtenerBarbero(int id);
 }

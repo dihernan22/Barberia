@@ -6,56 +6,56 @@ import android.arch.persistence.room.PrimaryKey;
 @Entity
 public class Usuario {
     @PrimaryKey(autoGenerate = true)
-    private int id;
-    private String nombre;
-    private String apellido;
-    private String telefono;
+    private int id_u;
+    private String nombre_u;
+    private String apellido_u;
+    private String telefono_u;
     private String cedula;
-    private String user;
-    private String contrasenia;
+    private String user_u;
+    private String contrasenia_u;
 
     public Usuario(){}
 
     public Usuario(int id, String nombre, String apellido, String telefono, String cedula, String user, String contrasenia) {
-        this.id = id;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.telefono = telefono;
+        this.id_u = id;
+        this.nombre_u = nombre;
+        this.apellido_u = apellido;
+        this.telefono_u = telefono;
         this.cedula = cedula;
-        this.user = user;
-        this.contrasenia = contrasenia;
+        this.user_u = user;
+        this.contrasenia_u = contrasenia;
     }
 
-    public int getId() {
-        return id;
+    public int getId_u() {
+        return id_u;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId_u(int id_u) {
+        this.id_u = id_u;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNombre_u() {
+        return nombre_u;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombre_u(String nombre_u) {
+        this.nombre_u = nombre_u;
     }
 
-    public String getApellido() {
-        return apellido;
+    public String getApellido_u() {
+        return apellido_u;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public void setApellido_u(String apellido_u) {
+        this.apellido_u = apellido_u;
     }
 
-    public String getTelefono() {
-        return telefono;
+    public String getTelefono_u() {
+        return telefono_u;
     }
 
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
+    public void setTelefono_u(String telefono_u) {
+        this.telefono_u = telefono_u;
     }
 
     public String getCedula() {
@@ -66,19 +66,19 @@ public class Usuario {
         this.cedula = cedula;
     }
 
-    public String getUser() {
-        return user;
+    public String getUser_u() {
+        return user_u;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setUser_u(String user_u) {
+        this.user_u = user_u;
     }
 
-    public String getContrasenia() {
-        return contrasenia;
+    public String getContrasenia_u() {
+        return contrasenia_u;
     }
 
-    public void setContrasenia(String contrasenia) {
-        this.contrasenia = contrasenia;
+    public void setContrasenia_u(String contrasenia_u) {
+        this.contrasenia_u = contrasenia_u;
     }
 }

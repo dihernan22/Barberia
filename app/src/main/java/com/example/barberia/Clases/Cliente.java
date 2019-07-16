@@ -6,69 +6,69 @@ import android.arch.persistence.room.PrimaryKey;
 @Entity
 public class Cliente {
     @PrimaryKey(autoGenerate = true)
-    private int id;
-    private String nombre;
-    private String apellido;
-    private String telefono;
-    private String user;
-    private String contrasenia;
+    private int id_c;
+    private String nombre_c;
+    private String apellido_c;
+    private String telefono_c;
+    private String user_c;
+    private String contrasenia_c;
 
     public Cliente(){}
 
     public Cliente(int id, String nombre, String apellido, String telefono, String user, String contrasenia) {
-        this.id = id;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.telefono = telefono;
-        this.user = user;
-        this.contrasenia = contrasenia;
+        this.id_c = id;
+        this.nombre_c = nombre;
+        this.apellido_c = apellido;
+        this.telefono_c = telefono;
+        this.user_c = user;
+        this.contrasenia_c = contrasenia;
     }
 
-    public int getId() {
-        return id;
+    public int getId_c() {
+        return id_c;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId_c(int id_c) {
+        this.id_c = id_c;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNombre_c() {
+        return nombre_c;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombre_c(String nombre_c) {
+        this.nombre_c = nombre_c;
     }
 
-    public String getApellido() {
-        return apellido;
+    public String getApellido_c() {
+        return apellido_c;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public void setApellido_c(String apellido_c) {
+        this.apellido_c = apellido_c;
     }
 
-    public String getTelefono() {
-        return telefono;
+    public String getTelefono_c() {
+        return telefono_c;
     }
 
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
+    public void setTelefono_c(String telefono_c) {
+        this.telefono_c = telefono_c;
     }
 
-    public String getUser() {
-        return user;
+    public String getUser_c() {
+        return user_c;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setUser_c(String user_c) {
+        this.user_c = user_c;
     }
 
-    public String getContrasenia() {
-        return contrasenia;
+    public String getContrasenia_c() {
+        return contrasenia_c;
     }
 
-    public void setContrasenia(String contrasenia) {
-        this.contrasenia = contrasenia;
+    public void setContrasenia_c(String contrasenia_c) {
+        this.contrasenia_c = contrasenia_c;
     }
 }

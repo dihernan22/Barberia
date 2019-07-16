@@ -9,10 +9,10 @@ import com.example.barberia.Clases.Usuario;
 
 public class CitaConCliente {
     @Embedded
-    Usuario usuario;
+    Cliente cliente;
 
     @Embedded
-    Cliente cliente;
+    Usuario usuario;
 
     @Embedded
     Corte corte;
