@@ -16,8 +16,8 @@ public class PrincipalActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
 
-        TextView textView = findViewById(R.id.tvVer);
-        textView.setText(Preferences.ObtenerUser(this));
+//        TextView textView = findViewById(R.id.tvVer);
+//        textView.setText(Preferences.ObtenerUser(this));
     }
 
     @Override
